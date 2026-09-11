@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-// import 'package:hotel_booking_test/controllers/booking_controller.dart';
+import 'package:hotel_booking_test/controllers/booking_controller.dart';
+import 'package:provider/provider.dart';
 
 class HotelBookingView extends StatelessWidget {
   const HotelBookingView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // final controller = context.watch<BookingController>();
+    final controller = context.watch<BookingController>();
     final theme = Theme.of(context);
-    // final isSelectedRoomAvailable =
-    //     controller.selectedRoom == null ||
-    //     controller.isRoomAvailable(controller.selectedRoom!);
+    final isSelectedRoomAvailable =
+        controller.selectedRoom == null ||
+        controller.isRoomAvailable(controller.selectedRoom!);
     final screenWidth = MediaQuery.of(context).size.width;
     final isWide = screenWidth > 900;
 

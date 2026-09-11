@@ -39,12 +39,12 @@ class ValidationResult {
 }
 
 class BookingValidator {
-  /// Strips time components for pure calendar date comparisons
+  // Strips time components for pure calendar date comparisons
   static DateTime normalizeDate(DateTime date) {
     return DateTime(date.year, date.month, date.day);
   }
 
-  /// Validates the check-in and check-out dates
+  // Validates the check-in and check-out dates
   static ValidationResult validateDates({
     required DateTime? checkIn,
     required DateTime? checkOut,
@@ -101,8 +101,8 @@ class BookingValidator {
     return ValidationResult.valid();
   }
 
-  /// Checks if two date intervals [startA, endA) and [startB, endB) overlap.
-  /// Note: Same-day turnaround (e.g. check-out at 11 AM, check-in at 2 PM) is NOT an overlap.
+  // Checks if two date intervals [startA, endA) and [startB, endB) overlap.
+  // Note: Same-day turnaround (e.g. check-out at 11 AM, check-in at 2 PM) is NOT an overlap.
   static bool doDatesOverlap({
     required DateTime startA,
     required DateTime endA,
@@ -117,7 +117,7 @@ class BookingValidator {
     return normStartA.isBefore(normEndB) && normEndA.isAfter(normStartB);
   }
 
-  /// Checks if a room is available for the given date range against existing bookings
+  // Checks if a room is available for the given date range against existing bookings
   static bool isRoomAvailable({
     required Room room,
     required DateTime checkIn,
